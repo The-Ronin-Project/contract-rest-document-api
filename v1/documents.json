@@ -1,0 +1,173 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Documents Service - OpenAPI 3.0",
+    "description": "Secure Document Service swagger",
+    "contact": {
+      "email": "carl@projectronin.com"
+    },
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Documents API",
+      "description": "Related to retrieving patient clinical documents."
+    }
+  ],
+  "paths": {
+    "/tenants/{tenant_id}/patients/{patient_id}/documents": {
+      "get": {
+        "summary": "Get Patient Documents",
+        "description": "Retrieves an list of patient documents.",
+        "operationId": "getPatientDocuments",
+        "tags": [
+          "Patient Documents"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin Tenant Id."
+          },
+          {
+            "in": "path",
+            "name": "patient_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin UDP Id for the Patient."
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Restrict documents results to the provided type(s)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/document.json#/components/schemas/PatientDocumentGetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    },
+    "/tenants/{tenant_id}/patients/{patient_id}/documents/{asset_id}": {
+      "get": {
+        "summary": "Get Patient Document",
+        "description": "Retrieve a Patient Document.",
+        "operationId": "getPatientDocument",
+        "tags": [
+          "Patient Documents"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin Tenant Id"
+          },
+          {
+            "in": "path",
+            "name": "patient_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin UDP Id for the Patient"
+          },
+          {
+            "in": "path",
+            "name": "asset_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The path of the asset"
+          },
+          {
+            "in": "query",
+            "name": "withData",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            },
+            "description": "Whether to return the data with the metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schemas/document.json#/components/schemas/PatientDocumentGetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "seki": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {}
+  }
+}
