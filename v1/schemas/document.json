@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Document": {
+        "title": "Document",
+        "description": "An asset for a patient",
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "md5": {
+            "type": "string"
+          },
+          "resourceType": {
+            "$ref": "#/components/schemas/ResourceType"
+          },
+          "resourceId": {
+            "type": "string"
+          },
+          "resourceAttribute": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "byte"
+          }
+        },
+        "required": [
+          "filename",
+          "md5",
+          "resourceType",
+          "resourceAttribute",
+          "data"
+        ]
+      },
+      "DocumentGetResponse": {
+        "title": "Asset Response",
+        "description": "An asset response",
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "type": "string"
+          },
+          "tenantId": {
+            "type": "string"
+          },
+          "patientId": {
+            "type": "string"
+          },
+          "md5": {
+            "type": "string"
+          },
+          "resourceType": {
+            "type": "string"
+          },
+          "resourceId": {
+            "type": "string"
+          },
+          "resourceAttribute": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "byte"
+          }
+        },
+        "required": [
+          "assetId",
+          "tenantId",
+          "patientId",
+          "resourceType",
+          "resourceAttribute",
+          "contentType",
+          "md5"
+        ]
+      },
+      "ResourceType": {
+        "type": "string",
+        "enum": [
+          "DiagnosticReport",
+          "DocumentReference",
+          "Patient"
+        ]
+      }
+    }
+  }
+}
