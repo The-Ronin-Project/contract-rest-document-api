@@ -1,10 +1,10 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Documents Service - OpenAPI 3.0",
-    "description": "Secure Document Service swagger",
+    "title": "Documents API - OpenAPI 3.0",
+    "description": "Document API swagger",
     "contact": {
-      "email": "carl@projectronin.com"
+      "email": "pecore@projectronin.com"
     },
     "version": "0.1.0"
   },
@@ -24,9 +24,9 @@
       "get": {
         "summary": "Get Patient Documents",
         "description": "Retrieves an list of patient documents.",
-        "operationId": "getPatientDocuments",
+        "operationId": "getDocuments",
         "tags": [
-          "Patient Documents"
+          "Documents API"
         ],
         "parameters": [
           {
@@ -54,7 +54,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Restrict documents results to the provided type(s)."
+            "description": "Restrict results to the provided type(s)."
           }
         ],
         "responses": {
@@ -63,7 +63,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/PatientDocumentGetResponse"
+                  "$ref": "schemas/document.json#/components/schemas/DocumentsGetResponse"
                 }
               }
             }
@@ -85,13 +85,13 @@
         ]
       }
     },
-    "/tenants/{tenant_id}/patients/{patient_id}/documents/{asset_id}": {
+    "/tenants/{tenant_id}/patients/{patient_id}/documents/{document_id}": {
       "get": {
         "summary": "Get Patient Document",
-        "description": "Retrieve a Patient Document.",
-        "operationId": "getPatientDocument",
+        "description": "Retrieve a patient document.",
+        "operationId": "getDocumentById",
         "tags": [
-          "Patient Documents"
+          "Documents API"
         ],
         "parameters": [
           {
@@ -101,7 +101,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "The Ronin Tenant Id"
+            "description": "The Ronin Tenant Id."
           },
           {
             "in": "path",
@@ -110,25 +110,16 @@
             "schema": {
               "type": "string"
             },
-            "description": "The Ronin UDP Id for the Patient"
+            "description": "The Ronin UDP Id for the Patient."
           },
           {
             "in": "path",
-            "name": "asset_id",
+            "name": "document_id",
             "required": true,
             "schema": {
               "type": "string"
             },
-            "description": "The path of the asset"
-          },
-          {
-            "in": "query",
-            "name": "withData",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Whether to return the data with the metadata"
+            "description": "The Id for the Document."
           }
         ],
         "responses": {
@@ -137,7 +128,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/PatientDocumentGetResponse"
+                  "$ref": "schemas/document.json#/components/schemas/DocumentGetResponse"
                 }
               }
             }
