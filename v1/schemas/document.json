@@ -8,8 +8,8 @@
   "components": {
     "schemas": {
       "DocumentsGetResponse": {
-        "title": "Document Response",
-        "description": "A document response",
+        "title": "Documents Response",
+        "description": "A document list response",
         "type": "array",
         "items": {
           "type": "object",
@@ -83,24 +83,24 @@
       "DocumentType": {
         "type": "string",
         "enum": [
-          "CONSULT_NOTES",
-          "HISTORY_AND_PHYSICAL_NOTES",
-          "PROGRESS_NOTES",
-          "DISCHARGE_SUMMARIES",
-          "PLAN_OF_CARE_NOTES",
-          "PROCEDURAL_REPORTS",
-          "SURGICAL_REPORTS_NOTES",
-          "IMAGING_STUDIES",
-          "EMERGENCY_DEPARTMENT_NOTES",
-          "OTHER_CLINICAL_DOCUMENTS"
+          "ConsultNotes",
+          "HistoryAndPhysicalNotes",
+          "ProgressNotes",
+          "DischargeSummaries",
+          "PlanOfCareNotes",
+          "ProceduralReports",
+          "SurgicalReportsNotes",
+          "ImagingStudies",
+          "EmergencyDepartmentNotes",
+          "OtherClinicalDocuments"
         ]
       },
       "ContentType": {
         "type": "string",
         "enum": [
-          "JPG",
-          "PDF",
-          "TXT"
+          "Jpg",
+          "Pdf",
+          "Txt"
         ]
       }
     }
