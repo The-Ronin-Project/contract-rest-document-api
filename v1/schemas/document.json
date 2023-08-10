@@ -7,89 +7,100 @@
   },
   "components": {
     "schemas": {
-      "Document": {
-        "title": "Document",
-        "description": "An asset for a patient",
-        "type": "object",
-        "properties": {
-          "filename": {
-            "type": "string"
+      "DocumentsGetResponse": {
+        "title": "Documents Response",
+        "description": "A document list response",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "$ref": "#/components/schemas/DocumentType"
+            },
+            "contentType": {
+              "$ref": "#/components/schemas/ContentType"
+            },
+            "assetUri": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time"
+            }
           },
-          "md5": {
-            "type": "string"
-          },
-          "resourceType": {
-            "$ref": "#/components/schemas/ResourceType"
-          },
-          "resourceId": {
-            "type": "string"
-          },
-          "resourceAttribute": {
-            "type": "string"
-          },
-          "data": {
-            "type": "string",
-            "format": "byte"
-          }
-        },
-        "required": [
-          "filename",
-          "md5",
-          "resourceType",
-          "resourceAttribute",
-          "data"
-        ]
+          "required": [
+            "id",
+            "name",
+            "type",
+            "contentType",
+            "assetUri",
+            "createdAt"
+          ]
+        }
       },
+
       "DocumentGetResponse": {
-        "title": "Asset Response",
-        "description": "An asset response",
+        "title": "Document Response",
+        "description": "A patient document",
         "type": "object",
         "properties": {
-          "assetId": {
+          "id": {
             "type": "string"
           },
-          "tenantId": {
+          "name": {
             "type": "string"
           },
-          "patientId": {
-            "type": "string"
-          },
-          "md5": {
-            "type": "string"
-          },
-          "resourceType": {
-            "type": "string"
-          },
-          "resourceId": {
-            "type": "string"
-          },
-          "resourceAttribute": {
-            "type": "string"
+          "type": {
+            "$ref": "#/components/schemas/DocumentType"
           },
           "contentType": {
+            "$ref": "#/components/schemas/ContentType"
+          },
+          "assetUri": {
             "type": "string"
           },
-          "data": {
+          "createdAt": {
             "type": "string",
-            "format": "byte"
+            "format": "date-time"
           }
         },
         "required": [
-          "assetId",
-          "tenantId",
-          "patientId",
-          "resourceType",
-          "resourceAttribute",
+          "id",
+          "name",
+          "type",
           "contentType",
-          "md5"
+          "assetUri",
+          "createdAt"
         ]
       },
-      "ResourceType": {
+
+      "DocumentType": {
         "type": "string",
         "enum": [
-          "DiagnosticReport",
-          "DocumentReference",
-          "Patient"
+          "ConsultNotes",
+          "HistoryAndPhysicalNotes",
+          "ProgressNotes",
+          "DischargeSummaries",
+          "PlanOfCareNotes",
+          "ProceduralReports",
+          "SurgicalReportsNotes",
+          "ImagingStudies",
+          "EmergencyDepartmentNotes",
+          "OtherClinicalDocuments"
+        ]
+      },
+      "ContentType": {
+        "type": "string",
+        "enum": [
+          "Jpg",
+          "Pdf",
+          "Txt"
         ]
       }
     }
