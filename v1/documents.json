@@ -6,7 +6,7 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "servers": [
     {
@@ -23,7 +23,7 @@
     "/tenants/{tenant_id}/patients/{patient_id}/documents": {
       "get": {
         "summary": "Get Patient Documents",
-        "description": "Retrieves an list of patient documents.",
+        "description": "Retrieves a list of patient documents.",
         "operationId": "getDocuments",
         "tags": [
           "Documents API"
@@ -63,7 +63,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/DocumentsGetResponse"
+                  "title": "Documents Response",
+                  "description": "A document list response",
+                  "type": "array",
+                  "items": {
+                    "$ref": "schemas/document.json#/components/schemas/Document"
+                  }
                 }
               }
             }
@@ -128,7 +133,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/DocumentGetResponse"
+                  "$ref": "schemas/document.json#/components/schemas/Document"
                 }
               }
             }

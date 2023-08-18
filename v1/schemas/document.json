@@ -7,45 +7,7 @@
   },
   "components": {
     "schemas": {
-      "DocumentsGetResponse": {
-        "title": "Documents Response",
-        "description": "A document list response",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            },
-            "type": {
-              "$ref": "#/components/schemas/DocumentType"
-            },
-            "contentType": {
-              "$ref": "#/components/schemas/ContentType"
-            },
-            "assetUri": {
-              "type": "string"
-            },
-            "createdAt": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "required": [
-            "id",
-            "name",
-            "type",
-            "contentType",
-            "assetUri",
-            "createdAt"
-          ]
-        }
-      },
-
-      "DocumentGetResponse": {
+      "Document": {
         "title": "Document Response",
         "description": "A patient document",
         "type": "object",
@@ -56,13 +18,16 @@
           "name": {
             "type": "string"
           },
+          "author": {
+            "type": "string"
+          },
           "type": {
             "$ref": "#/components/schemas/DocumentType"
           },
           "contentType": {
             "$ref": "#/components/schemas/ContentType"
           },
-          "assetUri": {
+          "assetUrl": {
             "type": "string"
           },
           "createdAt": {
@@ -73,34 +38,34 @@
         "required": [
           "id",
           "name",
+          "author",
           "type",
           "contentType",
-          "assetUri",
+          "assetUrl",
           "createdAt"
         ]
       },
-
       "DocumentType": {
         "type": "string",
         "enum": [
-          "ConsultNotes",
-          "HistoryAndPhysicalNotes",
-          "ProgressNotes",
-          "DischargeSummaries",
-          "PlanOfCareNotes",
-          "ProceduralReports",
-          "SurgicalReportsNotes",
-          "ImagingStudies",
-          "EmergencyDepartmentNotes",
-          "OtherClinicalDocuments"
+          "Consult Notes",
+          "History and Physical Notes",
+          "Progress Notes",
+          "Discharge Summaries",
+          "Plan of Care Notes",
+          "Procedural Reports",
+          "Surgical Reports Notes",
+          "Imaging Studies",
+          "Emergency Department Notes",
+          "Other Clinical Documents"
         ]
       },
       "ContentType": {
         "type": "string",
         "enum": [
-          "Jpg",
-          "Pdf",
-          "Txt"
+          "JPG",
+          "PDF",
+          "TXT"
         ]
       }
     }
