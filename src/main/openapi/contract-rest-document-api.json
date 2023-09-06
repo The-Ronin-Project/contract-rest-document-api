@@ -52,7 +52,8 @@
             "name": "type",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": { "type": "string"}
             },
             "description": "Restrict results to the provided type(s)."
           }
