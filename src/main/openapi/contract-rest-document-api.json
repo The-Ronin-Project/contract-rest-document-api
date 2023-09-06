@@ -6,13 +6,9 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
-  "servers": [
-    {
-      "url": "/api/v1"
-    }
-  ],
+  "servers": [ { "url": "/api/v1" } ],
   "tags": [
     {
       "name": "Documents API",
@@ -53,7 +49,7 @@
             "required": false,
             "schema": {
               "type": "array",
-              "items": { "type": "string"}
+              "items": { "type": "string" }
             },
             "description": "Restrict results to the provided type(s)."
           }
