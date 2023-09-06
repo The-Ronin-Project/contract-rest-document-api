@@ -63,12 +63,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Documents Response",
-                  "description": "A document list response",
-                  "type": "array",
-                  "items": {
-                    "$ref": "schemas/document.json#/components/schemas/Document"
-                  }
+                  "$ref": "#/components/schemas/PagedDocumentResponse"
                 }
               }
             }
@@ -133,7 +128,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/Document"
+                  "$ref": "v1/schemas/document.json#/components/schemas/Document"
                 }
               }
             }
@@ -164,6 +159,24 @@
         "bearerFormat": "JWT"
       }
     },
-    "schemas": {}
+
+    "schemas": {
+      "PagedDocumentResponse": {
+        "title": "Documents Response",
+        "description": "Retrieves a paged list of patient documents, optionally by type.",
+        "allOf": [
+          {
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": { "$ref": "v1/schemas/document.json#/components/schemas/Document" }
+              }
+            },
+            "required": [ "data" ]
+          },
+          { "$ref": ".dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
+        ]
+      }
+    }
   }
 }
