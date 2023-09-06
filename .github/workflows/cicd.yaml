@@ -13,9 +13,9 @@ on:
 jobs:
   build_and_test:
     name: build_and_test
-    uses: projectronin/github/.github/workflows/rest_contract_cicd.yaml@master
+    uses: projectronin/github/.github/actions/json-contract-cicd-gradle@json_contract_cicd_gradle/v1
     with:
       publish: ${{ github.ref == 'refs/heads/main' }}
     secrets:
-      nexus_user:      ${{ secrets.NEXUS_MAVEN_USER }}
-      nexus_token:     ${{ secrets.NEXUS_MAVEN_TOKEN }}
+      nexus_user: ${{ secrets.NEXUS_MAVEN_USER }}
+      nexus_token: ${{ secrets.NEXUS_MAVEN_TOKEN }}

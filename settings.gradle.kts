@@ -20,7 +20,10 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("roningradle") {
-            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.1.2")
+            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.3.3")
+        }
+        create("libs") {
+            from("com.projectronin:ronin-product-common:2.7.0")
         }
     }
 }

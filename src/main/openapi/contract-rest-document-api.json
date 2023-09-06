@@ -6,13 +6,9 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
-  "servers": [
-    {
-      "url": "/api/v1"
-    }
-  ],
+  "servers": [ { "url": "/api/v1" } ],
   "tags": [
     {
       "name": "Documents API",
@@ -52,7 +48,8 @@
             "name": "type",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": { "type": "string" }
             },
             "description": "Restrict results to the provided type(s)."
           }
@@ -63,12 +60,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Documents Response",
-                  "description": "A document list response",
-                  "type": "array",
-                  "items": {
-                    "$ref": "schemas/document.json#/components/schemas/Document"
-                  }
+                  "$ref": "#/components/schemas/PagedDocumentResponse"
                 }
               }
             }
@@ -133,7 +125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "schemas/document.json#/components/schemas/Document"
+                  "$ref": "v1/schemas/document.json#/components/schemas/Document"
                 }
               }
             }
@@ -164,6 +156,24 @@
         "bearerFormat": "JWT"
       }
     },
-    "schemas": {}
+
+    "schemas": {
+      "PagedDocumentResponse": {
+        "title": "Documents Response",
+        "description": "Retrieves a paged list of patient documents, optionally by type.",
+        "allOf": [
+          {
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": { "$ref": "v1/schemas/document.json#/components/schemas/Document" }
+              }
+            },
+            "required": [ "data" ]
+          },
+          { "$ref": ".dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
+        ]
+      }
+    }
   }
 }
