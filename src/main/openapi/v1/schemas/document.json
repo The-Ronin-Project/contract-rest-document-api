@@ -22,7 +22,8 @@
             "type": "string"
           },
           "type": {
-            "$ref": "#/components/schemas/DocumentType"
+            "type": "string",
+            "description": "A type derived from a valueset"
           },
           "contentType": {
             "$ref": "#/components/schemas/ContentType"
@@ -45,26 +46,12 @@
           "createdAt"
         ]
       },
-      "DocumentType": {
-        "type": "string",
-        "enum": [
-          "Consult Notes",
-          "History and Physical Notes",
-          "Progress Notes",
-          "Discharge Summaries",
-          "Plan of Care Notes",
-          "Procedural Reports",
-          "Surgical Reports Notes",
-          "Imaging Studies",
-          "Emergency Department Notes",
-          "Other Clinical Documents"
-        ]
-      },
       "ContentType": {
         "type": "string",
         "enum": [
           "JPG",
           "PDF",
+          "RTF",
           "TXT"
         ]
       }
