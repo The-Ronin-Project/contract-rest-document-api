@@ -225,7 +225,7 @@
     "schemas": {
       "DocumentFilterResponse": {
         "title": "Documents Filter Response",
-        "description": "Retrieves a paged list of patient documents, optionally by type.",
+        "description": "Retrieves an object with keys representing a filterable parameter and corresponding values limited to those which affect query results.",
         "type": "object",
         "properties": {
           "type": {
