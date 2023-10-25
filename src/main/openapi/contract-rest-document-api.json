@@ -6,7 +6,7 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "0.1.4"
+    "version": "1.0.0"
   },
   "servers": [ { "url": "/api/v1" } ],
   "tags": [
@@ -125,7 +125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedDocumentResponse"
+                  "$ref": "v1/schemas/paged-document-response.json#/components/schemas/PagedDocumentResponse"
                 }
               }
             }
@@ -179,7 +179,8 @@
             "name": "document_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Id for the Document."
           }
@@ -235,22 +236,6 @@
             }
           }
         }
-      },
-      "PagedDocumentResponse": {
-        "title": "Documents Response",
-        "description": "Retrieves a paged list of patient documents, optionally by type.",
-        "allOf": [
-          {
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": { "$ref": "v1/schemas/document.json#/components/schemas/Document" }
-              }
-            },
-            "required": [ "data" ]
-          },
-          { "$ref": ".dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
-        ]
       }
     }
   }
