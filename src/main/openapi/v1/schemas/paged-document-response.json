@@ -1,0 +1,28 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+      "title": "",
+      "version": ""
+    },
+    "components": {
+      "schemas": {
+        "PagedDocumentResponse": {
+          "title": "Documents list Response",
+          "description": "Retrieves a paged list of documents.",
+          "allOf": [
+            {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": { "$ref": "document.json#/components/schemas/Document" }
+                }
+              },
+              "required": [ "data" ]
+            },
+            { "$ref": "../../.dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
+          ]
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+{
+    "openapi": "3.0.2",
+    "paths": {},
+    "info": {
+      "title": "",
+      "version": ""
+    },
+    "components": {
+      "schemas": {
+        "DocumentFilterResponse": {
+            "title": "Documents Filter Response",
+            "description": "Retrieves an object with keys representing a filterable parameter and corresponding values limited to those which affect query results.",
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+   
+      }
+    }
+}

@@ -6,7 +6,7 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "0.1.4"
+    "version": "1.0.3"
   },
   "servers": [ { "url": "/api/v1" } ],
   "tags": [
@@ -50,7 +50,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DocumentFilterResponse"
+                  "$ref": "v1/schemas/document-filter-response.json#/components/schemas/DocumentFilterResponse"
                 }
               }
             }
@@ -125,7 +125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedDocumentResponse"
+                  "$ref": "v1/schemas/paged-document-response.json#/components/schemas/PagedDocumentResponse"
                 }
               }
             }
@@ -179,7 +179,8 @@
             "name": "document_id",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "description": "The Id for the Document."
           }
@@ -219,38 +220,6 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
-      }
-    },
-
-    "schemas": {
-      "DocumentFilterResponse": {
-        "title": "Documents Filter Response",
-        "description": "Retrieves an object with keys representing a filterable parameter and corresponding values limited to those which affect query results.",
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "PagedDocumentResponse": {
-        "title": "Documents Response",
-        "description": "Retrieves a paged list of patient documents, optionally by type.",
-        "allOf": [
-          {
-            "properties": {
-              "data": {
-                "type": "array",
-                "items": { "$ref": "v1/schemas/document.json#/components/schemas/Document" }
-              }
-            },
-            "required": [ "data" ]
-          },
-          { "$ref": ".dependencies/ronin-contract-shared-v1/META-INF/resources/v1/ronin-contract-shared-compiled.json#/components/schemas/PagedResponse" }
-        ]
       }
     }
   }
