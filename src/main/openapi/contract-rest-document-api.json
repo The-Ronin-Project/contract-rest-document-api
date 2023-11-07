@@ -179,8 +179,7 @@
             "name": "document_id",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "description": "The Id for the Document."
           }
