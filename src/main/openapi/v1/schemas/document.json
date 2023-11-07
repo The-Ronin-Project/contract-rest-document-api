@@ -14,7 +14,7 @@
         "properties": {
           "id": {
             "type": "string",
-	    "format": "uuid"
+            "description": "A document reference id"
           },
           "name": {
             "type": "string"

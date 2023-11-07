@@ -6,7 +6,7 @@
     "contact": {
       "email": "pecore@projectronin.com"
     },
-    "version": "1.0.3"
+    "version": "1.0.5"
   },
   "servers": [ { "url": "/api/v1" } ],
   "tags": [
@@ -179,8 +179,7 @@
             "name": "document_id",
             "required": true,
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             },
             "description": "The Id for the Document."
           }
