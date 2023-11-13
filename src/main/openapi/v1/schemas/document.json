@@ -26,8 +26,8 @@
             "type": "string",
             "description": "A type derived from a value set"
           },
-          "contentType": {
-            "$ref": "content-type.json#/components/schemas/ContentType"
+          "category": {
+            "$ref": "category.json#/components/schemas/Category"
           },
           "assetUrl": {
             "type": "string"
@@ -46,7 +46,7 @@
           "name",
           "author",
           "type",
-          "contentType",
+          "category",
           "assetUrl",
           "createdAt",
           "assets"

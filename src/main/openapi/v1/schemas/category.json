@@ -7,7 +7,7 @@
   },
   "components": {
     "schemas": {
-      "ContentType": {
+      "Category": {
         "type": "string",
         "enum": [
           "JPG",

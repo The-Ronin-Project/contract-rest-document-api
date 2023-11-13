@@ -19,8 +19,8 @@
           "mimeType": {
             "type": "string"
           },
-          "contentType": {
-            "$ref": "content-type.json#/components/schemas/ContentType"
+          "category": {
+            "$ref": "category.json#/components/schemas/Category"
           },
           "ehrdaUrl": {
             "type": "string",
