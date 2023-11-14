@@ -26,8 +26,8 @@
             "type": "string",
             "description": "A type derived from a value set"
           },
-          "category": {
-            "$ref": "category.json#/components/schemas/Category"
+          "assetKind": {
+            "$ref": "asset-kind.json#/components/schemas/AssetKind"
           },
           "assetUrl": {
             "type": "string"
@@ -46,7 +46,7 @@
           "name",
           "author",
           "type",
-          "category",
+          "assetKind",
           "assetUrl",
           "createdAt",
           "assets"

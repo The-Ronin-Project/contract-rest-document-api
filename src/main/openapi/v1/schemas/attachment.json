@@ -19,8 +19,8 @@
           "mimeType": {
             "type": "string"
           },
-          "category": {
-            "$ref": "category.json#/components/schemas/Category"
+          "assetKind": {
+            "$ref": "asset-kind.json#/components/schemas/AssetKind"
           },
           "ehrdaUrl": {
             "type": "string",
