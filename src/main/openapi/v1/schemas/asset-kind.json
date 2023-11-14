@@ -1,0 +1,22 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "AssetKind": {
+        "type": "string",
+        "enum": [
+          "JPG",
+          "PDF",
+          "RTF",
+          "TXT",
+          "OTHER"
+        ]
+      }
+    }
+  }
+}

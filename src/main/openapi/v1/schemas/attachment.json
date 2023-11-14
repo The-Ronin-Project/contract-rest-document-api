@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "Attachment": {
+        "title": "Document Attachment",
+        "description": "An attachment for a document",
+        "type": "object",
+        "properties": {
+          "assetUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "assetKind": {
+            "$ref": "asset-kind.json#/components/schemas/AssetKind"
+          },
+          "ehrdaUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "assetKind",
+          "assetUrl",
+          "mimeType",
+          "ehrdaUrl"
+        ]
+      }
+    }
+  }
+}

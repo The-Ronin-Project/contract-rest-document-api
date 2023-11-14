@@ -24,10 +24,10 @@
           },
           "type": {
             "type": "string",
-            "description": "A type derived from a valueset"
+            "description": "A type derived from a value set"
           },
-          "contentType": {
-            "$ref": "#/components/schemas/ContentType"
+          "assetKind": {
+            "$ref": "asset-kind.json#/components/schemas/AssetKind"
           },
           "assetUrl": {
             "type": "string"
@@ -35,6 +35,10 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "attachments": {
+            "type": "array",
+            "items": { "$ref": "attachment.json#/components/schemas/Attachment" }
           }
         },
         "required": [
@@ -42,18 +46,10 @@
           "name",
           "author",
           "type",
-          "contentType",
+          "assetKind",
           "assetUrl",
-          "createdAt"
-        ]
-      },
-      "ContentType": {
-        "type": "string",
-        "enum": [
-          "JPG",
-          "PDF",
-          "RTF",
-          "TXT"
+          "createdAt",
+          "assets"
         ]
       }
     }
