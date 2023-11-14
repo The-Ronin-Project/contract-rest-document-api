@@ -28,6 +28,7 @@
           }
         },
         "required": [
+          "assetKind",
           "assetUrl",
           "mimeType",
           "ehrdaUrl"
