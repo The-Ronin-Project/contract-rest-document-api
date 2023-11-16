@@ -43,8 +43,6 @@
         },
         "required": [
           "id",
-          "name",
-          "author",
           "type",
           "assetKind",
           "assetUrl",
