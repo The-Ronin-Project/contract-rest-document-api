@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.2",
+  "paths": {},
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "components": {
+    "schemas": {
+      "DerivedResourceTypeAndId": {
+        "title": "Derived Resource Resource",
+        "description": "The resource type and id",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "DerivedResourceSource": {
+        "title": "Derived Resource Source",
+        "description": "The source in the document derived from",
+        "type": "object",
+        "properties": {
+          "ehrdaUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "indexStart": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "indexEnd": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "ehrdaUrl",
+          "date"
+        ]
+      },
+      "DerivedResource": {
+        "title": "Derived Resource",
+        "description": "A resource to show the document it was derived from",
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/DerivedResourceTypeAndId"
+          },
+          "source": {
+            "$ref": "#/components/schemas/DerivedResourceSource"
+          }
+        },
+        "required": [
+          "resource",
+          "source"
+        ]
+      }
+    }
+  }
+}

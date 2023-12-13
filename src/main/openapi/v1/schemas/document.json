@@ -39,6 +39,10 @@
           "attachments": {
             "type": "array",
             "items": { "$ref": "attachment.json#/components/schemas/Attachment" }
+          },
+          "derivedResources": {
+            "type": "array",
+            "items": { "$ref": "derived-resource.json#/components/schemas/DerivedResource" }
           }
         },
         "required": [
