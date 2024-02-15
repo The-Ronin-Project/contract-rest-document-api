@@ -145,6 +145,91 @@
             "seki": []
           }
         ]
+      },
+      "post": {
+        "summary": "Get Patient Documents",
+        "description": "Retrieves a list of patient documents.",
+        "operationId": "getDocumentsById",
+        "tags": [
+          "Documents API"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenant_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin Tenant Id."
+          },
+          {
+            "in": "path",
+            "name": "patient_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The Ronin UDP Id for the Patient."
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "description": "Restrict results to the provided type(s)."
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "A paging token provided by a previous response."
+          }
+        ],
+        "requestBody": {
+          "description": "Document Ids Requested",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": { "type": "string"}
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "v1/schemas/paged-document-response.json#/components/schemas/PagedDocumentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Not Authorized"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        },
+        "security": [
+          {
+            "seki": []
+          }
+        ]
       }
     },
     "/tenants/{tenant_id}/patients/{patient_id}/documents/{document_id}": {
